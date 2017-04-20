@@ -1,4 +1,4 @@
-package com.taomk.sort.bubble;
+package com.taomk.sort;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
