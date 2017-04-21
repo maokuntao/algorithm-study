@@ -1,4 +1,4 @@
-package com.taomk.sort.common;
+package com.taomk.sort.utils;
 
 import java.util.Random;
 
@@ -44,5 +44,18 @@ public class ArrayUtils {
 			}
 		}
 		System.out.println(content.toString());
+	}
+	
+	/**
+	 * 交换数组中index为i,j两个位置的值
+	 * 
+	 * @param arrays
+	 * @param i
+	 * @param j
+	 */
+	public static void swap(int[] arrays , int i , int j){
+		int temp = arrays[i];
+		arrays[i] = arrays[j];
+		arrays[j] = temp;
 	}
 }

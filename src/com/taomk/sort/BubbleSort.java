@@ -2,7 +2,7 @@ package com.taomk.sort;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import com.taomk.sort.common.ArrayUtils;
+import com.taomk.sort.utils.ArrayUtils;
 
 /**
  * <pre>
@@ -32,16 +32,13 @@ public class BubbleSort {
 
 		Long startTime = System.nanoTime();
 
-		int temp;
 		int length = unsortedArrays.length;
 
 		for (int i = 0; i < length; i++) {
 			for (int j = 0; j < length; j++) {
 				loopCount.getAndIncrement();
 				if (unsortedArrays[i] < unsortedArrays[j]) {
-					temp = unsortedArrays[i];
-					unsortedArrays[i] = unsortedArrays[j];
-					unsortedArrays[j] = temp;
+					ArrayUtils.swap(unsortedArrays, i, j);
 				}
 			}
 			System.out.print("Loop" + loopCount.get() + " : ");
@@ -62,15 +59,12 @@ public class BubbleSort {
 	 * @param unsortedArrays
 	 */
 	public static void sort2(int[] unsortedArrays) {
-		int temp = 0;
 		int size = unsortedArrays.length;
 		for (int i = 0; i < size - 1; i++) {
 			for (int j = 0; j < size - 1 - i; j++) {
 				if (unsortedArrays[j] > unsortedArrays[j + 1]) {
 					loopCount.getAndIncrement();
-					temp = unsortedArrays[j];
-					unsortedArrays[j] = unsortedArrays[j + 1];
-					unsortedArrays[j + 1] = temp;
+					ArrayUtils.swap(unsortedArrays, j, j+1);
 				}
 			}
 			System.out.print("Loop" + loopCount.get() + " : ");
