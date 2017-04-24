@@ -30,8 +30,6 @@ public class BubbleSort {
 	 */
 	public static void sort1(int[] unsortedArrays) {
 
-		Long startTime = System.nanoTime();
-
 		int length = unsortedArrays.length;
 
 		for (int i = 0; i < length; i++) {
@@ -45,7 +43,6 @@ public class BubbleSort {
 			ArrayUtils.displayDetails(unsortedArrays);
 		}
 
-		interval = System.nanoTime() - startTime;
 	}
 
 	/**
@@ -80,8 +77,10 @@ public class BubbleSort {
 		ArrayUtils.displayDetails(unsortedArrays);
 
 		System.out.println("排序过程：");
-		sort1(unsortedArrays);
-//		sort2(unsortedArrays);
+		Long startTime = System.nanoTime();
+//		sort1(unsortedArrays);
+		sort2(unsortedArrays);
+		interval = System.nanoTime() - startTime;
 		
 		System.out.print("排序之后：");
 		ArrayUtils.displayDetails(unsortedArrays);
