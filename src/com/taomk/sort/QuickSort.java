@@ -39,7 +39,7 @@ public class QuickSort {
 		int i = start;
 		int j = end;
 
-		// 比较标识,是刚刚进入方法时index=i的那个元素值，每次递归时保持不变
+		// 基准值,是刚刚进入方法时index=i的那个元素值，每次递归时保持不变
 		int pivot = unsortedArrays[i];
 
 		// 按照从前往后的顺序遍历比对

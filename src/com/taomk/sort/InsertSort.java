@@ -5,6 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import com.taomk.sort.utils.ArrayUtils;
 
 /**
+ * 每轮循环完毕，保证前N个元素是有序的
  * @author taomk 2017年4月24日 下午4:32:31
  *
  */
