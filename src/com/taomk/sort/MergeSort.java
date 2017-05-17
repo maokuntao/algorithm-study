@@ -3,10 +3,18 @@ package com.taomk.sort;
 import com.taomk.sort.utils.ArrayUtils;
 
 /**
+ * <pre>
  * 归并排序
+ * 
+ * 简介:将两个（或两个以上）有序表合并成一个新的有序表 即把待排序序列分为若干个子序列，每个子序列是有序的。
+ * 然后再把有序子序列合并为整体有序序列。
+ * 
+ * 时间复杂度为O(nlogn) 
+ * 稳定排序方式 
  * 
  * {@link http://www.cnblogs.com/jianboqi/archive/2013/01/15/2860500.html}
  * 
+ * </pre>
  * @author taomk 2017年5月11日 下午1:56:28
  *
  */
