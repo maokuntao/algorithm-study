@@ -38,7 +38,7 @@ public class InsertSort {
 		// 时间间隔
 		long interval = 0L;
 
-		int[] unsortedArrays = ArrayUtils.genaralInteger(10, 100);
+		int[] unsortedArrays = ArrayUtils.generateInteger(10, 100);
 		System.out.print("未排序之前：");
 		ArrayUtils.displayDetails(unsortedArrays);
 

@@ -72,7 +72,7 @@ public class BubbleSort {
 	}
 
 	public static void main(String[] args) {
-		int[] unsortedArrays = ArrayUtils.genaralInteger(10, 100);
+		int[] unsortedArrays = ArrayUtils.generateInteger(10, 100);
 		System.out.print("未排序之前：");
 		ArrayUtils.displayDetails(unsortedArrays);
 

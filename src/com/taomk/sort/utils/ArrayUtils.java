@@ -17,7 +17,7 @@ public class ArrayUtils {
 	 * @param bound 数组元素的上限
 	 * @return
 	 */
-	public static int[] genaralInteger(int count , int bound){
+	public static int[] generateInteger(int count , int bound){
 		
 		int[] result = new int [count];
 		int i = 0;
