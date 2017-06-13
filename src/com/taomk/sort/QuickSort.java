@@ -19,13 +19,14 @@ public class QuickSort {
 
 	private static AtomicInteger loopCount = new AtomicInteger(0);
 	private static long interval = 0L;
-	
+
 	/**
 	 * <pre>
 	 * 选取一个基准值，每次循环之后在这个基准值左边的元素都比基准值小，右边的都比基准值大。
 	 * 此时，基准值所在的位置，即为它在有序队列中应该所在的位置。
 	 * 然后再对左边和右边分别递归，让队列有序。
 	 * </pre>
+	 * 
 	 * @param unsortedArrays
 	 * @param start
 	 * @param end
@@ -42,21 +43,23 @@ public class QuickSort {
 		// 基准值,是刚刚进入方法时index=i的那个元素值，每次递归时保持不变
 		int pivot = unsortedArrays[i];
 
-		// 按照从前往后的顺序遍历比对
-		boolean loopOrderASC = true;
+		// 初始阶段，按照从后往迁的顺序遍历比对
+		boolean loopOrderDESC = true;
 
 		while (i != j) {
-			if (loopOrderASC) {
+			if (loopOrderDESC) {
+				// 基准值 > 最右边的元素，此时应该交换
 				if (pivot > unsortedArrays[j]) {
 					ArrayUtils.swap(unsortedArrays, i, j);
-					loopOrderASC = false;
+					loopOrderDESC = false;
 				} else {
+					// 基准值 <= 最右边的元素，保持位置不变，继续朝前遍历比对
 					j--;
 				}
 			} else {
 				if (pivot < unsortedArrays[i]) {
 					ArrayUtils.swap(unsortedArrays, i, j);
-					loopOrderASC = true;
+					loopOrderDESC = true;
 				} else {
 					i++;
 				}
@@ -80,9 +83,9 @@ public class QuickSort {
 
 		System.out.println("排序过程：");
 		Long startTime = System.nanoTime();
-		sort(unsortedArrays, 0, unsortedArrays.length-1);
+		sort(unsortedArrays, 0, unsortedArrays.length - 1);
 		interval = System.nanoTime() - startTime;
-		
+
 		System.out.print("排序之后：");
 		ArrayUtils.displayDetails(unsortedArrays);
 
