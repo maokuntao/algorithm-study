@@ -38,9 +38,9 @@ public class BubbleSort {
 				if (unsortedArrays[i] < unsortedArrays[j]) {
 					ArrayUtils.swap(unsortedArrays, i, j);
 				}
+				ArrayUtils.displayDetails(unsortedArrays);
 			}
 			System.out.print("Loop" + loopCount.get() + " : ");
-			ArrayUtils.displayDetails(unsortedArrays);
 		}
 
 	}
@@ -78,8 +78,8 @@ public class BubbleSort {
 
 		System.out.println("排序过程：");
 		Long startTime = System.nanoTime();
-//		sort1(unsortedArrays);
-		sort2(unsortedArrays);
+		sort1(unsortedArrays);
+//		sort2(unsortedArrays);
 		interval = System.nanoTime() - startTime;
 		
 		System.out.print("排序之后：");
