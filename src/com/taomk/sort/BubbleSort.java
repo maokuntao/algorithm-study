@@ -38,9 +38,9 @@ public class BubbleSort {
 				if (unsortedArrays[i] < unsortedArrays[j]) {
 					ArrayUtils.swap(unsortedArrays, i, j);
 				}
-				ArrayUtils.displayDetails(unsortedArrays);
 			}
 			System.out.print("Loop" + loopCount.get() + " : ");
+			ArrayUtils.displayDetails(unsortedArrays);
 		}
 
 	}

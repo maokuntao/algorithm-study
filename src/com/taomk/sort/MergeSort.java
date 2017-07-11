@@ -43,7 +43,7 @@ public class MergeSort {
 		// 缓存左数组第一个元素的索引
 		int tmp = left;
 
-		// 每次从两个数组中取出最小的放入临时数组
+		// 每次从两个数组中取出最小的放入临时数组，循环结束条件是两边中任意一边遍历完成
 		while (left <= center && mid <= right) {
 			if (unsortArray[left] <= unsortArray[mid]) {
 				tmpArr[tempArrayIndex++] = unsortArray[left++];
