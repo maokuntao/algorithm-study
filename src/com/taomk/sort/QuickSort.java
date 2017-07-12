@@ -43,7 +43,7 @@ public class QuickSort {
 		// 基准值,是刚刚进入方法时index=i的那个元素值，每次递归时保持不变
 		int pivot = unsortedArrays[i];
 
-		// 初始阶段，按照从后往迁的顺序遍历比对
+		// 初始阶段，按照从后向前的顺序遍历比对
 		boolean loopOrderDESC = true;
 
 		while (i != j) {
