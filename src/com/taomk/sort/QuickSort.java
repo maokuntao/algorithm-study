@@ -69,9 +69,9 @@ public class QuickSort {
 		}
 		ArrayUtils.displayDetails(unsortedArrays);
 
-		// 将pivot左边的那部分排序
+		// 将pivot左边的那部分递归排序
 		sort(unsortedArrays, start, j - 1);
-		// 将pivot右边的那部分排序
+		// 将pivot右边的那部分递归排序
 		sort(unsortedArrays, i + 1, end);
 
 	}
