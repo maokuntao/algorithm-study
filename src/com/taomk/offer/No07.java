@@ -15,9 +15,9 @@ public class No07 {
 		
 		String str = "I am a programmer   .";
 
-		System.out.println(test1(str));
+//		System.out.println(test1(str));
 		
-//		System.out.println(test2(str));
+		System.out.println(test2(str));
 		
 	}
 
