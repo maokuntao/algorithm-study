@@ -3,8 +3,13 @@ package com.taomk.hash;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 import java.util.SortedMap;
+import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * <pre>
@@ -90,17 +95,55 @@ public class ConsistentHash<T> {
 
 		return circle.get(hashValue);
 	}
-	
+
 	/**
 	 * 获取虚拟节点数量
+	 * 
 	 * @return
 	 */
 	public int getSize() {
 		return circle.size();
 	}
 
+	/**
+	 * 计算各个虚拟节点直接间隔
+	 */
+	public void testBalance() {
+		Set<Long> keySet = circle.keySet();
+
+		System.out.println("-----location of each node are follows : -----");
+		for (Long node : keySet) {
+			System.out.println(circle.get(node));
+		}
+
+		System.out.println("-----each location 's distance are follows : -----");
+		SortedSet<Long> sortedSet = new TreeSet<Long>(keySet);
+		Iterator<Long> i1 = sortedSet.iterator();
+		Iterator<Long> i2 = sortedSet.iterator();
+		if (i2.hasNext()) {// i2向后移动一个位置
+			i2.next();
+		}
+		while (i1.hasNext() && i2.hasNext()) {
+			Long long1 = (Long) i1.next();
+			Long long2 = (Long) i2.next();
+			System.out.println((long2 - long1));
+
+		}
+	}
+
 	public static void main(String[] args) {
 
+		Set<String> nodes = new HashSet<String>();
+		nodes.add("A");
+		nodes.add("B");
+		nodes.add("C");
+
+		ConsistentHash<String> consistentHash = new ConsistentHash<String>(new HashFunction(), 3, nodes);
+		consistentHash.add("D");
+
+		System.out.println("size of hash circle : " + consistentHash.getSize());
+
+		consistentHash.testBalance();
 	}
 
 }
