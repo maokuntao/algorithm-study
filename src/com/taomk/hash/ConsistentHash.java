@@ -39,13 +39,64 @@ public class ConsistentHash<T> {
 	 */
 	private void initNode(Collection<T> nodes) {
 		for (T t : nodes) {
-			// 一个节点，对应numberOfReplicas个虚拟节点
-			for (int i = 0; i < numberOfReplicas; i++) {
-				// 不同的虚拟节点（只有i不同），有不同的hash值，但都对应同一个实际的节点
-				// 虚拟的节点一般是均匀地分布在环上，数据存储在顺时针最近的那个虚拟node上
-				circle.put(hashFunction.hash(t.toString() + i), t);
-			}
+			add(t);
+
 		}
+	}
+
+	/**
+	 * 增加一个节点（实际节点）
+	 * 
+	 * @param t
+	 */
+	public void add(T t) {
+		// 一个节点，对应numberOfReplicas个虚拟节点
+		for (int i = 0; i < numberOfReplicas; i++) {
+			// 不同的虚拟节点（只有i不同），有不同的hash值，但都对应同一个实际的节点
+			// 虚拟的节点一般是均匀地分布在环上，数据存储在顺时针最近的那个虚拟node上
+			circle.put(hashFunction.hash(t.toString() + i), t);
+		}
+	}
+
+	/**
+	 * 删除一个节点（实际节点）
+	 * 
+	 * @param t
+	 */
+	public void remove(T t) {
+		for (int i = 0; i < numberOfReplicas; i++) {
+			circle.remove(hashFunction.hash(t.toString() + i));
+		}
+	}
+
+	/**
+	 * 获取节点的值
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public T get(Object key) {
+		if (circle.isEmpty()) {
+			return null;
+		}
+
+		long hashValue = hashFunction.hash(key.toString());
+
+		// 计算hash值相邻的最近的node
+		if (!circle.containsKey(hashValue)) {
+			SortedMap<Long, T> tailMap = circle.tailMap(hashValue);
+			hashValue = tailMap.isEmpty() ? circle.firstKey() : circle.firstKey();
+		}
+
+		return circle.get(hashValue);
+	}
+	
+	/**
+	 * 获取虚拟节点数量
+	 * @return
+	 */
+	public int getSize() {
+		return circle.size();
 	}
 
 	public static void main(String[] args) {
