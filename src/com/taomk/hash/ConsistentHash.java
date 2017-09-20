@@ -18,6 +18,8 @@ import java.util.TreeSet;
  * 
  * http://www.cnblogs.com/hapjin/p/4737207.html
  * 
+ * http://www.cnblogs.com/lpfuture/p/5796398.html
+ * 
  * </pre>
  * 
  * @author taomk 2017年9月19日 下午4:27:43
