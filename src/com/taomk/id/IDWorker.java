@@ -2,7 +2,7 @@ package com.taomk.id;
 
 /**
  * 
- * http://www.cnblogs.com/baiwa/p/5318432.html
+ * http://blog.csdn.net/u010372981/article/details/68924830
  * 
  * @author taomk 2017年10月11日 下午7:32:32
  *
